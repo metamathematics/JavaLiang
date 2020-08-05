@@ -17,7 +17,7 @@ public class Exercise01 {
       System.out.printf("Wrong Input: %s\n", args[0]);
       System.exit(0);
     }
-    // Attempt tp convert operand2 to an int
+    // Attempt to convert operand2 to an int
     try {
       operand2 = Integer.parseInt(args[2]);
     } catch (NumberFormatException ex) {
@@ -34,7 +34,11 @@ public class Exercise01 {
                 break;
       case '.': result = operand1 * operand2;
                 break;
-      case '/': result = operand1 / operand2;
+      case '/': if (operand2 == 0) {
+                  System.out.println("Cannot divide by 0.");
+                  System.exit(0);
+                }
+                result = operand1 / operand2;
     }
 
     // Print results
